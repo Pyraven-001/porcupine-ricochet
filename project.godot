@@ -1,0 +1,31 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Porcupine Ricochet"
+run/main_scene="res://scenes/main_scene.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[layer_names]
+
+2d_physics/layer_1="TERRAIN"
+2d_physics/layer_2="PLAYER"
+2d_physics/layer_3="CANNON"
+2d_physics/layer_4="ENEMIES"
+2d_physics/layer_5="COLLECTIBLES"
+2d_physics/layer_6="TEXTS"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
