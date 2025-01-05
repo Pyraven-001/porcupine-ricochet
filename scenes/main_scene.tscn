@@ -1,20 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://mvrtuen4fwq4"]
-
-[ext_resource type="PackedScene" uid="uid://dnv2kp81d01k1" path="res://scenes/porcupine.tscn" id="1_js4c1"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jwoe"]
-size = Vector2(1163, 112)
+[gd_scene format=3 uid="uid://mvrtuen4fwq4"]
 
 [node name="Main Scene" type="Node2D"]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 424.0
+offset_top = 314.0
+offset_right = 792.0
+offset_bottom = 377.0
+theme_override_font_sizes/font_size = 40
+text = "PLAY"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(584, 681)
-shape = SubResource("RectangleShape2D_6jwoe")
-
-[node name="Porcupine" parent="." instance=ExtResource("1_js4c1")]
-position = Vector2(425, 593)
-
-[node name="Camera2D" type="Camera2D" parent="Porcupine"]
-zoom = Vector2(3, 3)
+[node name="Button2" type="Button" parent="."]
+offset_left = 498.0
+offset_top = 409.0
+offset_right = 718.0
+offset_bottom = 472.0
+theme_override_font_sizes/font_size = 40
+text = "EXIT"
