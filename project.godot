@@ -15,6 +15,10 @@ run/main_scene="res://scenes/main_scene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*res://sripts/GameManager.gd"
+
 [layer_names]
 
 2d_physics/layer_1="TERRAIN"
