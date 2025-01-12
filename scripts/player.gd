@@ -12,12 +12,12 @@ var speed: float = 1000.0
 enum State { IDLE, FLY, FLY_NEEDLE, DEAD }
 var current_state: State = State.IDLE
 
-var is_flying = true#false
+var is_flying = false
 var in_cannon = false
 var in_needle_mode = false
 var is_dead = false
 
-var direction = Vector2(0,0)
+var direction = Vector2.ZERO
 
 # Function to shoot the porcupine from the cannon
 # direction: The direction in which the porcupine is shot
@@ -42,17 +42,22 @@ func gravitize(delta: float) -> void:
 	velocity.y += gravity * delta
 
 func handle_movement(delta: float) -> void:
-	gravitize(delta)
-	if !is_flying:
-		idle(delta)
+	if !in_cannon:
+		gravitize(delta)
 	else:
-		fly(delta)
+		if !is_flying:
+			idle(delta)
+		else:
+			fly(delta)
 
 func _ready():
 	current_state = State.IDLE
 
+func check_if_on_air() -> void:
+	is_on_air = !is_on_floor() and !is_on_ceiling()
+
 func _process(delta: float) -> void:
-	pass
+	check_if_on_air()
 
 # Physics process function to handle the porcupine's movement
 func _physics_process(delta: float) -> void:

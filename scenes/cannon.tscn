@@ -102,10 +102,17 @@ visible = false
 position = Vector2(-15.5, -7.5)
 shape = SubResource("RectangleShape2D_0v3hv")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="Body" type="Area2D" parent="."]
 visible = false
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
 position = Vector2(-5.5, -16.75)
 shape = SubResource("RectangleShape2D_nur1g")
 debug_color = Color(0.636783, 0.526471, 3.85046e-07, 0.42)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(9.5, -16.5)
+
+[connection signal="body_entered" from="Body" to="." method="_on_body_body_entered"]
