@@ -53,11 +53,9 @@ func handle_movement(delta: float) -> void:
 func _ready():
 	current_state = State.IDLE
 
-func check_if_on_air() -> void:
-	is_on_air = !is_on_floor() and !is_on_ceiling()
 
 func _process(delta: float) -> void:
-	check_if_on_air()
+	pass
 
 # Physics process function to handle the porcupine's movement
 func _physics_process(delta: float) -> void:
