@@ -9,7 +9,7 @@ extends CharacterBody2D
 var gravity: float = GameManager.get_gravity()
 var speed: float = 1000.0
 
-enum State { IDLE, FLY, FLY_NEEDLE, DEAD }
+enum State { IDLE, FLY, FLY_NEEDLE, DEAD, IN_CANNON }
 var current_state: State = State.IDLE
 
 var is_flying = false
@@ -39,23 +39,36 @@ func fly(delta: float) -> void:
 	current_state = State.FLY
 
 func gravitize(delta: float) -> void:
-	velocity.y += gravity * delta
+	if !is_on_floor():
+		velocity.y += gravity * delta
+
+func is_in_cannon(delta: float) -> void:
+	velocity.y = 0
+	current_state = State.IN_CANNON
 
 func handle_movement(delta: float) -> void:
 	if !in_cannon:
 		gravitize(delta)
 	else:
-		if !is_flying:
-			idle(delta)
-		else:
-			fly(delta)
+		is_in_cannon(delta)
+
+func change_animation() -> void:
+	if current_state == State.IN_CANNON:
+		animated_sprite_2d.play("in-cannon")
+	elif current_state == State.FLY_NEEDLE:
+		animated_sprite_2d.play("fly_needle")
+	elif current_state == State.FLY:
+		animated_sprite_2d.play("fly")
+	elif current_state == State.DEAD:
+		animated_sprite_2d.play("dead")
+	else:
+		animated_sprite_2d.play("idle")
 
 func _ready():
 	current_state = State.IDLE
 
-
 func _process(delta: float) -> void:
-	pass
+	change_animation()
 
 # Physics process function to handle the porcupine's movement
 func _physics_process(delta: float) -> void:
