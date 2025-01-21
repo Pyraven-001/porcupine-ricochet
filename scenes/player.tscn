@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://dnv2kp81d01k1"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_8q5tj"]
+[ext_resource type="Script" uid="uid://d2brp35cddkr8" path="res://scripts/player.gd" id="1_8q5tj"]
 [ext_resource type="Texture2D" uid="uid://bt8thhgqobqpq" path="res://assets/images/Placeholders/Hedgehog Sprite Sheet.png" id="4_tf1cp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jgnyw"]
@@ -133,9 +133,8 @@ jump_force = null
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_7dvcs")
-animation = &"in-cannon"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.776404
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
