@@ -127,14 +127,14 @@ size = Vector2(20.5, 9)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_8q5tj")
-max_speed = null
-jump_force = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_7dvcs")
-animation = &"idle"
+animation = &"flying"
 autoplay = "idle"
+frame = 1
+frame_progress = 0.435035
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

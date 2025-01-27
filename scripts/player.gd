@@ -49,6 +49,7 @@ func is_in_cannon(delta: float) -> void:
 func handle_movement(delta: float) -> void:
 	if !in_cannon:
 		gravitize(delta)
+		fly(delta)
 	else:
 		is_in_cannon(delta)
 
@@ -56,9 +57,9 @@ func change_animation() -> void:
 	if current_state == State.IN_CANNON:
 		animated_sprite_2d.play("in-cannon")
 	elif current_state == State.FLY_NEEDLE:
-		animated_sprite_2d.play("fly_needle")
+		animated_sprite_2d.play("flying_needle")
 	elif current_state == State.FLY:
-		animated_sprite_2d.play("fly")
+		animated_sprite_2d.play("flying")
 	elif current_state == State.DEAD:
 		animated_sprite_2d.play("dead")
 	else:

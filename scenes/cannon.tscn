@@ -124,4 +124,8 @@ script = ExtResource("3_yjxeu")
 [node name="RayCast2D" type="RayCast2D" parent="AimingTrail"]
 target_position = Vector2(174, 0)
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="Body" to="." method="_on_body_body_entered"]
+[connection signal="body_exited" from="Body" to="." method="_on_body_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

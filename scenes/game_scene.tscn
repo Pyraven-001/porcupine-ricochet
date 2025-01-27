@@ -1190,7 +1190,9 @@ tile_map_data = PackedByteArray("AAAcADAAAQAcABUAAABWADAAAQAcABUAAACQADAAAQAeABU
 tile_set = SubResource("TileSet_lilll")
 
 [node name="Porcupine" parent="." instance=ExtResource("1_xo2nx")]
-position = Vector2(180, 504)
+position = Vector2(181, 557)
+max_speed = 2000.0
+jump_force = 250.0
 
 [node name="Camera2D" type="Camera2D" parent="Porcupine"]
-zoom = Vector2(4, 4)
+zoom = Vector2(3.405, 3.405)
